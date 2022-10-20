@@ -18,24 +18,24 @@ helpFunction() {
 while getopts "i:d:" ARGS; do
     case "$ARGS" in
     i) input_dir=$OPTARG ;;
-    d) DNA_Reference=$OPTARG ;;
+    d) DNA_reference=$OPTARG ;;
     ?) helpFunction ;; # Print helpFunction in case parameter is non-existent
     esac
 done
 
 # Print helpFunction in case parameters are empty
-if [ -z "$input_dir" ] || [ -z "$DNA_Reference" ]; then
+if [ -z "$input_dir" ] || [ -z "$DNA_reference" ]; then
     echo "Some or all of the parameters are empty"
     helpFunction
 fi
 
 # Begin script in case all parameters are correct
-echo "$input_directory"
-echo "$DNA_Reference"
+echo "$input_dir"
+echo "$DNA_reference"
 
 ### Checking input_dir
 
-if [ ! -d "${input_dir}" ] && [ -x "${input_dir}" ]; then
+if [ ! -d "${input_dir}" ] && [ -x "${DNA_reference}" ]; then
     echo -e "Input directory not provided, Aborting"
     echo ""
     helpFunction
