@@ -1,3 +1,4 @@
+#!/bin/bash
 # Cutadapt script for cleaning Tn-Seq read data,
 
 # Check for cutadapt program availability
