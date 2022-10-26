@@ -34,7 +34,8 @@ for file in $(find "${INPDIR}" -maxdepth 1 -name "*_001.fastq${EXT}"); do
         --discard-untrimmed \
         --cores=20 \
         -o "${cutadapt_dir}/${Out_tntrimmed}" \
-        "${file}"
+        "${file}" \
+        >>cutadapt_primer_trimming_stats_transposontrimming.txt 2>&1
 
 done
 
@@ -54,7 +55,8 @@ for file in $(find "${cutadapt_dir}" -maxdepth 1 -type l -name "*_001.fastq"); d
         --discard-untrimmed \
         --cores=20 \
         -o "${final_cutadapt_dir}/${Out_tntrimmed_final}" \
-        "${file}"
+        "${file}" \
+        >>cutadapt_primer_trimming_stats_finaladaptertrim.txt 2>&1
 
 done
 
