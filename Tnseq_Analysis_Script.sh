@@ -74,8 +74,8 @@ mkdir -p "${BASEDIR}/finaltrimmed"
 
 cut_adapt() {
     # Cutadapt function
-    # Calls external cutadapt script
-    Tnseq_cutadapt.sh
+    # Calls external cutadapt script from within base directory
+    ${BASEDIR}/Tnseq_cutadapt.sh
 
 }
 
