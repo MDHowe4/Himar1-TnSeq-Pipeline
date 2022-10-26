@@ -23,4 +23,8 @@ find /home/baughna/howex118/YMTnTestFiles -maxdepth 1 -name "*_001.fastq" > test
 
 basename /home/baughna/howex118/YMTnTestFiles/Minimal_Plate_1_AGTCAA_L007_R1_001.fastq
 
-basename /home/baughna/howex118/YMTnTestFiles/Minimal_Plate_1_AGTCAA_L007_R1_001.fastq | sed "*_001.fastq"
+basename /home/baughna/howex118/YMTnTestFiles/Minimal_Plate_1_AGTCAA_L007_R1_001.fastq | sed "s/.fastq//"
+
+
+
+"s/.fastq${INfileext}//"
