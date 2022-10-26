@@ -40,14 +40,16 @@ for file in $(find "${INPDIR}" -maxdepth 1 -name "*_001.fastq${EXT}"); do
 
 done
 
-for file in $(find "${cutadapt_dir}" -maxdepth 1 -type l -name "*_tntrimmed.fastq"); do
-
+for file in $(find "${cutadapt_dir}" -maxdepth 1 -name "*_tntrimmed.fastq"); do
+    echo "${file}"
     # if [ ! -L "${file}" ]; then
     #     echo "Error: No *.fastq' trimmed files found in ${final_cutadapt_dir}"
     #     break
 
     In_name_final=$(basename ${file} | sed "s/_tntrimmed.fastq//")
+    echo "$In_name_final"
     Out_tntrimmed_final="${In_name_final}_FinalTrim.fastq"
+    echo "$Out_tntrimmed_final"
 
     echo "On sample: $file"
     echo "Trimming Adapters for: $file"
