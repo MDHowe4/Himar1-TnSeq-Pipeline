@@ -69,6 +69,8 @@ export EXT="${INfile}"
 
 module load cutadapt
 
+cd "${PWD}"
+
 mkdir -p "${BASEDIR}/tntrimmed"
 mkdir -p "${BASEDIR}/finaltrimmed"
 
