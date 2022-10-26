@@ -10,12 +10,12 @@ command -v cutadapt >/dev/null 2>&1 || {
 
 # Defining process variables
 
-cutadapt_dir="${INPDIR}/tntrimmed"
-final_cutadapt_dir="${INPDIR}/finaltrimmed"
+cutadapt_dir="${BASEDIR}/tntrimmed"
+final_cutadapt_dir="${BASEDIR}/finaltrimmed"
 
 # Find the file and execute transposon trimming and adapter trimming
 
-for file in $(find "${WKDIR}/input_data/" -maxdepth 1 -type l -name "*_001.fastq.${EXT}"); do
+for file in $(find "${INPDIR}" -maxdepth 1 -type l -name "*_001.fastq.${EXT}"); do
 
     if [ ! -L "${file}" ]; then
         echo "Error: No *.fastq.'${EXT}' files found in ${INPDIR}"
@@ -30,7 +30,7 @@ for file in $(find "${WKDIR}/input_data/" -maxdepth 1 -type l -name "*_001.fastq
             -g CCGGGGACTTATCAGCCAACCTGT \
             --discard-untrimmed \
             --cores=20 \
-            -o ${cutadapt_dir}/${Out_tntrimmed} \
+            -o "${cutadapt_dir}/${Out_tntrimmed}" \
             "${file}"
 
     fi
@@ -51,7 +51,7 @@ for file in $(find "${cutadapt_dir}" -maxdepth 1 -type l -name "*_001.fastq"); d
             -g CCGGGGACTTATCAGCCAACCTGT \
             --discard-untrimmed \
             --cores=20 \
-            -o ${final_cutadapt_dir}/${Out_tntrimmed_final} \
+            -o "${final_cutadapt_dir}/${Out_tntrimmed_final}" \
             "${file}"
     fi
 done
