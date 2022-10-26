@@ -44,12 +44,12 @@ if [ ! -d "${input_dir}" ] && [ -x "${DNA_reference}" ]; then
 else
     echo -e "\n#\tContents of input directory: ${input_dir}"
     echo -e "\n#============================================================\n"
-    INfile=$(find "${input_dir}" -iname "*_R*_001.fastq.*" | awk -F . '{print $NF}' | head -1)
+    INfile=$(find "${input_dir}" -iname "*_R*_001.fastq.*" | awk -F . '{print "."$NF}' | head -1)
     echo "${INfile}"
-    forward_read_filecount=$(find "${input_dir}" -name "*_R1_001.fastq.${INfile}" | wc -l)
+    forward_read_filecount=$(find "${input_dir}" -name "*_R1_001.fastq${INfile}" | wc -l)
 
     #
-    forward_read_filesize=$(find "${input_dir}" -name "*_R1_001.fastq.${INfile}" -print0 | du --files0-from=- -ch | grep "total" | cut -f1)
+    forward_read_filesize=$(find "${input_dir}" -name "*_R1_001.fastq${INfile}" -print0 | du --files0-from=- -ch | grep "total" | cut -f1)
 
     #
     echo -e "\t-> Number of read files: $forward_read_filecount"
@@ -59,7 +59,7 @@ fi
 
 ### Setting up input directory and base directory and other variables for child processes
 echo "Script executed from: ${PWD}"
-export BASEDIR=$(dirname $0)
+export BASEDIR=${PWD}
 echo "Script location: ${BASEDIR}"
 
 export INPDIR="${input_dir}"
