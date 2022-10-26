@@ -18,25 +18,24 @@ echo "$final_cutadapt_dir"
 echo "${EXT}"
 for file in $(find "${INPDIR}" -maxdepth 1 -name "*_001.fastq${EXT}"); do
     echo "${file}"
-    if [ ! -L "${file}" ]; then
-        echo "Error: No *.fastq${EXT} files found in ${INPDIR}"
-        break
-    else
-        In_name=$(basename ${file} | sed "*_001.fastq${EXT}//")
-        echo "$In_name"
-        Out_tntrimmed="${In_name}_tntrimmed.fastq"
-        echo "$Out_tntrimmed"
+    # if [ ! -L "${file}" ]; then
+    #     echo "Error: No *.fastq${EXT} files found in ${INPDIR}"
+    #     break
 
-        echo "On sample: $file"
-        echo "Trimming Transposons for: $file"
-        cutadapt \
-            -g CCGGGGACTTATCAGCCAACCTGT \
-            --discard-untrimmed \
-            --cores=20 \
-            -o "${cutadapt_dir}/${Out_tntrimmed}" \
-            "${file}"
+    In_name=$(basename ${file} | sed "*_001.fastq${EXT}//")
+    echo "$In_name"
+    Out_tntrimmed="${In_name}_tntrimmed.fastq"
+    echo "$Out_tntrimmed"
 
-    fi
+    echo "On sample: $file"
+    echo "Trimming Transposons for: $file"
+    cutadapt \
+        -g CCGGGGACTTATCAGCCAACCTGT \
+        --discard-untrimmed \
+        --cores=20 \
+        -o "${cutadapt_dir}/${Out_tntrimmed}" \
+        "${file}"
+
 done
 
 for file in $(find "${cutadapt_dir}" -maxdepth 1 -type l -name "*_001.fastq"); do
