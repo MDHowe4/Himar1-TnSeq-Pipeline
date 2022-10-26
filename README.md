@@ -1,0 +1,1 @@
+qsub Tnseq_Analysis_Script.sh -i /home/baughna/howex118/YMTnTestFiles -d /home/baughna/howex118/Reference_genomes_anns/H37Rv_Reference_Genome_NC_000962.3.fasta
