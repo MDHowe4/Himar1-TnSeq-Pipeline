@@ -7,6 +7,8 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=howex118@umn.edu
 
+cd ${PWD}
+
 helpFunction() {
     echo ""
     echo "Usage: $0 -i input_dir -d DNA_Reference"
@@ -68,8 +70,6 @@ export EXT="${INfile}"
 ### Adapter trimming and quality filtering of the raw reads
 
 module load cutadapt
-
-cd "${PWD}"
 
 mkdir -p "${BASEDIR}/tntrimmed"
 mkdir -p "${BASEDIR}/finaltrimmed"
