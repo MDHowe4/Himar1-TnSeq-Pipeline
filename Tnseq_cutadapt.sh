@@ -16,6 +16,7 @@ final_cutadapt_dir="${BASEDIR}/finaltrimmed"
 echo "$final_cutadapt_dir"
 # Find the file and execute transposon trimming and adapter trimming
 echo "${EXT}"
+
 for file in $(find "${INPDIR}" -maxdepth 1 -name "*_001.fastq${EXT}"); do
     echo "${file}"
     # if [ ! -L "${file}" ]; then
@@ -39,7 +40,7 @@ for file in $(find "${INPDIR}" -maxdepth 1 -name "*_001.fastq${EXT}"); do
 
 done
 
-for file in $(find "${cutadapt_dir}" -maxdepth 1 -type l -name "*_001.fastq"); do
+for file in $(find "${cutadapt_dir}" -maxdepth 1 -type l -name "*_tntrimmed.fastq"); do
 
     # if [ ! -L "${file}" ]; then
     #     echo "Error: No *.fastq' trimmed files found in ${final_cutadapt_dir}"
