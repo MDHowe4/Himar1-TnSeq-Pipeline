@@ -47,7 +47,7 @@ else
     echo -e "\n#\tContents of input directory: ${input_dir}"
     echo -e "\n#============================================================\n"
     INfile=$(find "${input_dir}" -iname "*_R*_001.fastq.*" | awk -F . '{print "."$NF}' | head -1)
-    echo "${INfile}"
+
     forward_read_filecount=$(find "${input_dir}" -name "*_R1_001.fastq${INfile}" | wc -l)
 
     #
@@ -59,6 +59,7 @@ else
     echo -e "\n#============================================================\n"
 fi
 
+echo "${INfile}"
 ### Setting up input directory and base directory and other variables for child processes
 echo "Script executed from: ${PWD}"
 export BASEDIR=${PWD}
