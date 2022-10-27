@@ -68,7 +68,7 @@ echo "Script location: ${BASEDIR}"
 export INPDIR="${input_dir}"
 export EXT="${INfile}"
 export DNAREFERENCE="${DNA_reference}"
-
+echo "${DNAREFERENCE}"
 ### Transposon and adapter trimming and of the raw reads
 ### Genome idexing/alignment
 

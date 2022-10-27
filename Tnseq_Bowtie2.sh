@@ -17,7 +17,7 @@ echo "$TRIMREADS"
 echo "$SAMFILES"
 # Find the file and execute transposon trimming and adapter trimming
 
-bowtie2-build -f $DNAREFERENCE ${BASEDIR}/index/mycobacteria_index
+bowtie2-build -f ${DNAREFERENCE} ${BASEDIR}/index/mycobacteria_indices
 
 for file in $(find "${TRIMREADS}" -maxdepth 1 -name "*_FinalTrim.fastq"); do
     echo "${file}"
@@ -30,7 +30,7 @@ for file in $(find "${TRIMREADS}" -maxdepth 1 -name "*_FinalTrim.fastq"); do
     bowtie2 \
         -q \
         -sam \
-        -x ${BASEDIR}/index/mycobacteria_index ${file} \
+        -x ${BASEDIR}/index/mycobacteria_indices ${file} \
         -S "${SAMFILE}/${Out_bowtie2}"
 
 done
