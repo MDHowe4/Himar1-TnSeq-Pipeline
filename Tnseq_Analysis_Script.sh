@@ -101,6 +101,6 @@ REFERENCEFILENAME="$(basename $DNAREFERENCE)"
 echo "$REFERENCEFILENAME"
 export REFERENCEFILENAME
 
-python ${BASEDIR}/Wig_from_Fastq_tnseq_MDH.py
+python ${BASEDIR}/Wig_from_Fastq.py
 
 # End of Tn-seq analysis script
