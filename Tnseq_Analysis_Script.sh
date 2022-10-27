@@ -97,7 +97,7 @@ echo "Converting SAM file to Wig file for running in TRANSIT"
 module purge
 module load biopython
 
-REFERENCEFILENAME="$(basename $DNAREFERENCE)"
+REFERENCEFILENAME="${DNAREFERENCE}"
 echo "$REFERENCEFILENAME"
 export REFERENCEFILENAME
 
