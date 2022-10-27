@@ -1,4 +1,4 @@
-qsub Tnseq_Analysis_Script.sh -i /home/baughna/howex118/YMTnTestFiles -d /home/baughna/howex118/Reference_genomes_anns/H37Rv_Reference_Genome_NC_000962.3.fasta
+qsub Tnseq_Analysis_Script.sh -i /home/baughna/howex118/YMTnTestFiles -d /home/baughna/howex118/Reference_genomes_anns/H37Rv_Reference_Files/H37Rv_Reference_Genome_NC_000962.3.fasta
 
 Minimal_Plate_1_AGTCAA_L007_R1_001.fastq
 
@@ -31,3 +31,8 @@ basename /panfs/jay/groups/3/baughna/howex118/Tnseqtest/Himar1-TnSeq-Pipeline/tn
 
 
 /panfs/jay/groups/3/baughna/howex118/Tnseqtest/Himar1-TnSeq-Pipeline/tntrimmed
+
+
+
+
+more /home/baughna/howex118/Reference_genomes_anns/H37Rv_Reference_Files/H37Rv_Reference_Genome_NC_000962.3.fasta
