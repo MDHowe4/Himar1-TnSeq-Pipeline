@@ -67,8 +67,7 @@ echo "Script location: ${BASEDIR}"
 
 export INPDIR="${input_dir}"
 export EXT="${INfile}"
-export DNAREFERENCE="${$DNA_reference}"
-
+export DNAREFERENCE="${DNA_reference}"
 
 ### Transposon and adapter trimming and of the raw reads
 ### Genome idexing/alignment
@@ -92,26 +91,7 @@ run_tnseq_functions() {
 
 run_tnseq_functions
 
-
-
-
-
-
-
 ### Adapter trimming and quality filtering of the raw reads
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # module load cutadapt
 # module load bowtie2
