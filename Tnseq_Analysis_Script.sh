@@ -98,8 +98,11 @@ module purge
 module load biopython
 
 REFERENCEFILENAME="${DNAREFERENCE}"
+REFERENCENAME="$(basename $DNAREFERENCE)"
 echo "$REFERENCEFILENAME"
+echo "$REFERENCENAME"
 export REFERENCEFILENAME
+export REFERENCENAME
 
 python ${BASEDIR}/Wig_from_Fastq.py
 

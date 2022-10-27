@@ -1,7 +1,7 @@
 from Bio import SeqIO
 import os
 
-ref_genome_bowtie_index = "NC_000962.3"  # Bowtie index name
+ref_genome_bowtie_index = os.environ["REFERENCENAME"]  # Bowtie index name
 # Reference genome FASTA file
 ref_genome_fasta = os.environ["REFERENCEFILENAME"]
 print(ref_genome_fasta)
@@ -77,3 +77,5 @@ for i in files:
         save_file.write(newline)
     print("done with " + fname)
     save_file.close()
+
+# End of fastq to wig script
