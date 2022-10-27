@@ -14,7 +14,7 @@ cutadapt_dir="${BASEDIR}/tntrimmed"
 echo "$cutadapt_dir"
 final_cutadapt_dir="${BASEDIR}/finaltrimmed"
 echo "$final_cutadapt_dir"
-# Find the file and execute transposon trimming and adapter trimming
+# Find the files and execute transposon trimming and adapter trimming
 echo "${EXT}"
 
 for file in $(find "${INPDIR}" -maxdepth 1 -name "*_001.fastq${EXT}"); do

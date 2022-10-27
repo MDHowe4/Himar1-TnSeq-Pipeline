@@ -67,22 +67,51 @@ echo "Script location: ${BASEDIR}"
 
 export INPDIR="${input_dir}"
 export EXT="${INfile}"
+export DNAREFERENCE="${$DNA_reference}"
 
-### Adapter trimming and quality filtering of the raw reads
+
+### Transposon and adapter trimming and of the raw reads
+### Genome idexing/alignment
 
 module load cutadapt
+module load bowtie2
 
 mkdir -p "${BASEDIR}/tntrimmed"
 mkdir -p "${BASEDIR}/finaltrimmed"
+mkdir -p "${BASEDIR}/index"
+mkdir -p "${BASEDIR}/SAMfiles"
 
-cut_adapt() {
+run_tnseq_functions() {
     # Cutadapt function
     # Calls external cutadapt script from within base directory
     ${BASEDIR}/Tnseq_cutadapt.sh
+    # Calls external bowtie2 script from within base directory
+    ${BASEDIR}/Tnseq_Bowtie2.sh
 
 }
 
-cut_adapt
+run_tnseq_functions
+
+
+
+
+
+
+
+### Adapter trimming and quality filtering of the raw reads
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # module load cutadapt
 # module load bowtie2
