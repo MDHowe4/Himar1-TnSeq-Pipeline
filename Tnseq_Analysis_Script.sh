@@ -91,6 +91,18 @@ run_tnseq_functions() {
 
 run_tnseq_functions
 
+echo "Converting SAM file to Wig file for running in TRANSIT"
+# Purge bowtie2 and cutadapt packages to avoid conflict errors with biopython module
+
+module purge
+module load biopython
+
+REFERENCEFILENAME="$(basename $DNAREFERENCE)"
+echo "$REFERENCEFILENAME"
+export REFERENCEFILENAME
+
+python ${BASEDIR}/Wig_from_Fastq_tnseq_MDH.py
+
 ### Adapter trimming and quality filtering of the raw reads
 
 # module load cutadapt
@@ -155,13 +167,13 @@ run_tnseq_functions
 
 # done
 
-# echo "Step 5: Converting SAM file to Wig file for running in TRANSIT"
-# # Purge bowtie2 and cutadapt packages to avoid conflict errors with biopython module
-# module purge
-# module load biopython
+echo "Step 5: Converting SAM file to Wig file for running in TRANSIT"
+# Purge bowtie2 and cutadapt packages to avoid conflict errors with biopython module
+module purge
+module load biopython
 
-# REFERENCEFILENAME="$(basename $DNAREFERENCE)"
-# echo "$REFERENCEFILENAME"
-# export REFERENCEFILENAME
+REFERENCEFILENAME="$(basename $DNAREFERENCE)"
+echo "$REFERENCEFILENAME"
+export REFERENCEFILENAME
 
-# python $TNFOLDER/Wig_from_Fastq_tnseq_MDH.py
+python $TNFOLDER/Wig_from_Fastq_tnseq_MDH.py
