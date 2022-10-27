@@ -105,5 +105,5 @@ export REFERENCEFILENAME
 export REFERENCENAME
 
 python ${BASEDIR}/Wig_from_Fastq.py
-
+echo "Hello"
 # End of Tn-seq analysis script
