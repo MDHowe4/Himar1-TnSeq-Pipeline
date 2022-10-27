@@ -55,7 +55,7 @@ for file in $(find "${cutadapt_dir}" -maxdepth 1 -name "*_tntrimmed.fastq"); do
     echo "Trimming Adapters for: $file"
     cutadapt \
         -g CCGGGGACTTATCAGCCAACCTGT \
-        --discard-untrimmed \
+        --minimum-length=18 \
         --cores=20 \
         -o "${final_cutadapt_dir}/${Out_tntrimmed_final}" \
         "${file}" \
