@@ -13,19 +13,16 @@ command -v bowtie2 >/dev/null 2>&1 || {
 
 TRIMREADS="${BASEDIR}/finaltrimmed"
 SAMFILE="${BASEDIR}/SAMfiles"
-echo "$TRIMREADS"
-echo "$SAMFILES"
+
 # Find the file and execute transposon trimming and adapter trimming
 
 bowtie2-build -f ${DNAREFERENCE} ${BASEDIR}/index/mycobacteria_indices
 
 for file in $(find "${TRIMREADS}" -maxdepth 1 -name "*_FinalTrim.fastq"); do
-    echo "${file}"
 
     In_name=$(basename ${file} | sed "s/_FinalTrim.fastq//")
-    echo "$In_name"
+
     Out_bowtie2="${In_name}_Bowtie2.sam"
-    echo "$Out_bowtie2"
 
     bowtie2 \
         -q \

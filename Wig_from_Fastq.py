@@ -12,10 +12,10 @@ filename = ref_genome_fasta
 count = 0
 for record in SeqIO.parse(filename, "fasta"):
     for i in record.seq:
-        if i == "T":
+        if i == "T" or i == "t":
             T_found = True
             T_pos = count
-        elif i == "A":
+        elif i == "A" or i == "a":
             if T_found == True:
                 TA_sites.append(T_pos)
                 T_found = False
